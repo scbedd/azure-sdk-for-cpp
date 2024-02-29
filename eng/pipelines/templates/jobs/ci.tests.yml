@@ -102,7 +102,7 @@ jobs:
     steps:
       - template: /eng/common/pipelines/templates/steps/verify-agent-os.yml
         parameters:
-          AgentImage: $(OsVmImage)
+          AgentImage: ${{ parameters.OSName }}
 
       - template: /eng/pipelines/templates/steps/fix-1es-image-apt-azure-sources.yml
 
