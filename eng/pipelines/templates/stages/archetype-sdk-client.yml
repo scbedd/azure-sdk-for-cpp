@@ -109,14 +109,12 @@ extends:
         policy: M365
         credscan:
           suppressionsFile: $(Build.SourcesDirectory)/eng/CredScanSuppression.json
-          scanFolder: $(Build.SourcesDirectory)/credscan.tsv
           toolVersion: 2.3.12.23
-          baselineFiles: $(Build.SourcesDirectory)/eng/<language>.gdnbaselines
 
     stages:
       - stage: CMakeGeneration
         jobs:
-          - template: /eng/pipelines/templates/jobs/cmake-generate-jobs.yml
+          - template: /eng/pipelines/templates/jobs/cmake-generate-jobs.yml@self
             parameters:
               TimeoutInMinutes: ${{ parameters.CMakeGenerationTimeoutInMinutes }}
               ServiceDirectory: ${{ parameters.ServiceDirectory }}
@@ -130,7 +128,7 @@ extends:
       - stage: PrePublishBuild
         dependsOn: []
         jobs:
-          - template: /eng/pipelines/templates/jobs/archetype-sdk-client.yml
+          - template: /eng/pipelines/templates/jobs/archetype-sdk-client.yml@self
             parameters:
               MatrixFile: eng/pipelines/templates/stages/platform-matrix-quick.json
               JobName: QuickValidate
@@ -152,7 +150,7 @@ extends:
       - stage: Build
         dependsOn: []
         jobs:
-          - template: /eng/pipelines/templates/jobs/archetype-sdk-client.yml
+          - template: /eng/pipelines/templates/jobs/archetype-sdk-client.yml@self
             # Code coverage is enabled by default for live tests
             parameters:
               MatrixFile: eng/pipelines/templates/stages/platform-matrix.json
@@ -173,7 +171,7 @@ extends:
               RunMetaJobs: false
 
       - ${{ if and(eq(variables['System.TeamProject'], 'internal'), ne(parameters.LiveTestCtestRegex, '')) }}:
-          - template: /eng/pipelines/templates/stages/archetype-sdk-tests.yml
+          - template: /eng/pipelines/templates/stages/archetype-sdk-tests.yml@self
             parameters:
               TimeoutInMinutes: ${{ parameters.LiveTestTimeoutInMinutes }}
               ServiceDirectory: ${{ parameters.ServiceDirectory }}
@@ -188,7 +186,7 @@ extends:
               PostTestSteps: ${{ parameters.PostTestSteps }}
 
       - ${{ if and(eq(variables['System.TeamProject'], 'internal'), not(endsWith(variables['Build.DefinitionName'], ' - tests'))) }}:
-          - template: archetype-cpp-release.yml
+          - template: archetype-cpp-release.yml@self
             parameters:
               ServiceDirectory: ${{ parameters.ServiceDirectory }}
               IntegrationDependsOn:
