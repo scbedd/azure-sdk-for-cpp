@@ -61,6 +61,8 @@ jobs:
           Selection: all
           GenerateVMJobs: true
       JobTemplatePath: /eng/pipelines/templates/jobs/ci.tests.yml
+      OsVmImage: azsdk-pool-mms-ubuntu-2004-1espt
+      Pool: azsdk-pool-mms-ubuntu-2004-1es-pt
       AdditionalParameters:
         DisplayName: ${{ parameters.JobName }}
         Artifacts: ${{ parameters.Artifacts }}

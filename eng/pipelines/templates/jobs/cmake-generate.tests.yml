@@ -36,7 +36,8 @@ parameters:
     default: ''
 
 jobs:
-- job: ${{ parameters.JobName }}
+- job:
+  displayName: ${{ parameters.JobName }}
   timeoutInMinutes: ${{ parameters.TimeoutInMinutes }}
   condition: >-
     and(
