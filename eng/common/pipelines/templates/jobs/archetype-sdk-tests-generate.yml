@@ -46,13 +46,13 @@ parameters:
 - name: Pools
   type: object
   default:
-    - name: LinuxPool
+    - name: mms-ubuntu
       os: linux
     - name: LinuxNextPool
       os: linux
-    - name: WindowsPool
+    - name: mms-win
       os: windows
-    - name: MacPool
+    - name: mac
       os: macOS
 
 jobs:
