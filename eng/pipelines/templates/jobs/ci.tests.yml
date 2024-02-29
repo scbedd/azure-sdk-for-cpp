@@ -323,12 +323,11 @@ jobs:
         condition: eq(variables['PublishMapFiles'], 'true')
         displayName: Stage map files
 
-      - task: PublishPipelineArtifact@1
-        inputs:
-          artifactName: map-files-$(MapFileArtifactName)
-          path: $(Build.ArtifactStagingDirectory)
-        condition: eq(variables['PublishMapFiles'], 'true')
-        displayName : Publish map file artifacts
+      - template: /eng/common/pipelines/templates/steps/publish-artifact.yml
+        parameters:
+          ArtifactPath: $(Build.ArtifactStagingDirectory)
+          ArtifactName: map-files-$(MapFileArtifactName)
+          CustomCondition: eq(variables['PublishMapFiles'], 'true')
         
       - pwsh: |
           $artifactName = "$(Agent.JobName)"
