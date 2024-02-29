@@ -6,8 +6,8 @@
           {
             "StaticConfigs": {
               "Ubuntu22": {
-                "OSVmImage": "azsdk-pool-mms-ubuntu-2204-1espt",
-                "Pool": "azsdk-pool-mms-ubuntu-2204-1es-pt",
+                "OSVmImage": "env:LINUXNEXTVMIMAGE",
+                "Pool": "env:LINUXNEXTPOOL",
                 "VCPKG_DEFAULT_TRIPLET": "x64-linux",
                 "BuildArgs": "-j 10",
                 "RunProxyTests": true

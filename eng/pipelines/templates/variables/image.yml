@@ -3,17 +3,23 @@
 variables:
   - name: LINUXPOOL
     value: azsdk-pool-mms-ubuntu-2004-1es-pt
+  - name: LINUXNEXTPOOL
+    value: azsdk-pool-mms-ubuntu-2204-1es-pt
   - name: WINDOWSPOOL
     value: azsdk-pool-mms-win-2022-1es-pt
+  - name: WINDOWSPREVIOUSPOOL
+    value: azsdk-pool-mms-win-2019-1es-pt
   - name: MACPOOL
     value: Azure Pipelines
 
   - name: LINUXVMIMAGE
     value: azsdk-pool-mms-ubuntu-2004-1espt
   - name: LINUXNEXTVMIMAGE
-    value: ubuntu-22.04
+    value: azsdk-pool-mms-ubuntu-2204-1espt
   - name: WINDOWSVMIMAGE
     value: azsdk-pool-mms-win-2022-1espt
+  - name: WINDOWSPREVIOUSVMIMAGE
+    value: azsdk-pool-mms-win-2019-1espt
   - name: MACVMIMAGE
     value: macos-11
 

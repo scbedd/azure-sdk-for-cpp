@@ -46,13 +46,15 @@ parameters:
 - name: Pools
   type: object
   default:
-    - name: ubuntu
+    - name: LinuxPool
       os: linux
     - name: LinuxNextPool
       os: linux
-    - name: win
+    - name: WindowsPool
       os: windows
-    - name: Pipelines
+    - name: WindowsPreviousPool
+      os: windows
+    - name: MacPool
       os: macOS
 
 jobs:
@@ -94,7 +96,7 @@ jobs:
                 -ConfigPath ${{ config.Path }}
                 -Selection ${{ config.Selection }}
                 -DisplayNameFilter '$(displayNameFilter)'
-                -Filters '${{ join(''',''', parameters.MatrixFilters) }}', 'container=^$', 'SupportedClouds=^$|${{ parameters.CloudConfig.Cloud }}', 'Pool=.*${{ pool.name }}'
+                -Filters '${{ join(''',''', parameters.MatrixFilters) }}', 'container=^$', 'SupportedClouds=^$|${{ parameters.CloudConfig.Cloud }}', 'Pool=.*${{ pool.name }}$'
                 -Replace '${{ join(''',''', parameters.MatrixReplace) }}'
                 -NonSparseParameters '${{ join(''',''', config.NonSparseParameters) }}'
             displayName: Create ${{ pool.name }} Matrix ${{ config.Name }}
