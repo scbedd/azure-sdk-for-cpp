@@ -52,7 +52,7 @@ parameters:
       os: linux
     - name: win
       os: windows
-    - name: mac
+    - name: Pipelines
       os: macOS
 
 jobs:
@@ -94,7 +94,7 @@ jobs:
                 -ConfigPath ${{ config.Path }}
                 -Selection ${{ config.Selection }}
                 -DisplayNameFilter '$(displayNameFilter)'
-                -Filters '${{ join(''',''', parameters.MatrixFilters) }}', 'container=^$', 'SupportedClouds=^$|${{ parameters.CloudConfig.Cloud }}', 'Pool=.*${{ pool.name }}$'
+                -Filters '${{ join(''',''', parameters.MatrixFilters) }}', 'container=^$', 'SupportedClouds=^$|${{ parameters.CloudConfig.Cloud }}', 'Pool=.*${{ pool.name }}'
                 -Replace '${{ join(''',''', parameters.MatrixReplace) }}'
                 -NonSparseParameters '${{ join(''',''', config.NonSparseParameters) }}'
             displayName: Create ${{ pool.name }} Matrix ${{ config.Name }}
