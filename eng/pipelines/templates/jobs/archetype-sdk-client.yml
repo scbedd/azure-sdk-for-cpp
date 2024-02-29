@@ -84,8 +84,9 @@ jobs:
       - job:
         displayName: Create API Review for ${{ artifact.name }}
         pool:
-          name: azsdk-pool-mms-win-2022-general
-          vmImage: windows-2022
+          name: azsdk-pool-mms-win-2022-1es-pt
+          vmImage: azsdk-pool-mms-win-2022-1espt
+          os: windows
         steps:
           - task: Powershell@2
             inputs:
@@ -143,8 +144,9 @@ jobs:
 
     - job: GenerateReleaseArtifacts
       pool:
-        name: azsdk-pool-mms-win-2022-general
-        vmImage: windows-2022
+        name: azsdk-pool-mms-win-2022-1es-pt
+        vmImage: azsdk-pool-mms-win-2022-1espt
+        os: windows
       variables:
         VCPKG_DEFAULT_TRIPLET: 'x64-windows-static'
         Package.EnableSBOMSigning: true
