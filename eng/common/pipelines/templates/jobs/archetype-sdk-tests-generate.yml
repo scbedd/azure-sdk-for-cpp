@@ -46,11 +46,11 @@ parameters:
 - name: Pools
   type: object
   default:
-    - name: mms-ubuntu
+    - name: ubuntu
       os: linux
     - name: LinuxNextPool
       os: linux
-    - name: mms-win
+    - name: win
       os: windows
     - name: mac
       os: macOS
