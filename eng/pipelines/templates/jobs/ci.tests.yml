@@ -55,7 +55,9 @@ parameters:
   - name: DisplayName
     type: string
     default: Validate
-
+  - name: OSName
+    type: string
+    default: ''
 
 jobs:
   - job:
@@ -68,6 +70,7 @@ jobs:
     pool:
       vmImage: $(OSVmImage)
       name: $(Pool)
+      os: ${{ parameters.OSName }}
     variables:
     - name: CMOCKA_XML_FILE
       value: "%g-test-results.xml"

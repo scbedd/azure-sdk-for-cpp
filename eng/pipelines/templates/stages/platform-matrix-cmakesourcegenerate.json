@@ -2,13 +2,13 @@
   "matrix": {
     "OSConfig": {
       "Windows": {
-        "Pool": "azsdk-pool-mms-win-2022-general",
-        "OSVmImage": "windows-2022",
+        "Pool": "azsdk-pool-mms-win-2022-1es-pt",
+        "OSVmImage": "azsdk-pool-mms-win-2022-1espt",
         "CmakeEnvArg": ""
       },
       "Linux": {
-        "Pool": "azsdk-pool-mms-ubuntu-2204-general",
-        "OSVmImage": "MMSUbuntu22.04",
+        "Pool": "azsdk-pool-mms-ubuntu-2204-1es-pt",
+        "OSVmImage": "azsdk-pool-mms-ubuntu-2204-1espt",
         "CmakeEnvArg": "",
         "AptDependencies": "libcurl4-openssl-dev"
       },

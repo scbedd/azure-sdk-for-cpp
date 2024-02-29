@@ -31,6 +31,9 @@ parameters:
   - name: TimeoutInMinutes
     type: number
     default: 120
+  - name: OSName
+    type: string
+    default: ''
 
 jobs:
 - job: ${{ parameters.JobName }}
@@ -49,6 +52,7 @@ jobs:
   pool:
     name: $(Pool)
     vmImage: $(OSVmImage)
+    os: ${{ parameters.OSName }}
 
   ${{ if eq(parameters.UsePlatformContainer, 'true') }}:
     # Add a default so the job doesn't fail when the matrix is empty

@@ -3,14 +3,14 @@
     "CmakeEnvArg": "",
     "OSConfig": {
       "Linux": {
-        "Pool": "azsdk-pool-mms-ubuntu-2204-general",
-        "OSVmImage": "MMSUbuntu22.04",
+        "Pool": "azsdk-pool-mms-ubuntu-2204-1es-pt",
+        "OSVmImage": "azsdk-pool-mms-ubuntu-2204-1espt",
         "AptDependencies": "libcurl4-openssl-dev",
         "VCPKG_DEFAULT_TRIPLET": "x64-linux"
       },
       "Windows": {
-        "Pool": "azsdk-pool-mms-win-2022-general",
-        "OSVmImage": "windows-2022",
+        "Pool": "azsdk-pool-mms-win-2022-1es-pt",
+        "OSVmImage": "azsdk-pool-mms-win-2022-1espt",
         "VCPKG_DEFAULT_TRIPLET": "x64-windows"
       },
       "Mac": {
